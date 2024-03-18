@@ -3,13 +3,11 @@ import random
 class Password:
     def __init__(self, min_length, number=True, symbols = True)->str:
         self.min_length = min_length
-        # self.max_length = max_length
         self.number = number
         self.symbol = symbols
         self.letters = string.ascii_letters
         self.numbers = string.digits
         self.symbols = string.punctuation
-        print(self.__getCharacter())
     
     def __str__(self) -> str:
         return self.__generate_password()
@@ -31,8 +29,6 @@ class Password:
         has_number = False
         has_special = False
         
-        print(self.__getCharacter())
-        
         while not meet_criteria or len(pwd) < self.min_length:
             new_char = random.choice(self.__getCharacter())
             pwd += new_char
@@ -47,5 +43,4 @@ class Password:
             if self.symbol:
                 meet_criteria = meet_criteria and has_special
         return pwd
-            
-password = Password(10)
+        
